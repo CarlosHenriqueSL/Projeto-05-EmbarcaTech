@@ -92,6 +92,12 @@ double numero5[NUM_PIXELS] = {1.0, 1.0, 1.0, 1.0, 1.0,
                               1.0, 0.0, 0.0, 0.0, 0.0,
                               1.0, 1.0, 1.0, 1.0, 1.0};
 
+double ledsLigados[NUM_PIXELS] = {1.0, 1.0, 1.0, 1.0, 1.0,
+                                  1.0, 1.0, 1.0, 1.0, 1.0,
+                                  1.0, 1.0, 1.0, 1.0, 1.0,
+                                  1.0, 1.0, 1.0, 1.0, 1.0,
+                                  1.0, 1.0, 1.0, 1.0, 1.0};
+
 // Função para inicializar o teclado matricial
 void iniciar_teclado()
 {
@@ -167,6 +173,17 @@ void desenho_pio(double *desenho, PIO pio, uint sm)
     }
 }
 
+void desenho_pio_blue(double *desenho, uint32_t valor_led, PIO pio, uint sm, double r, double g, double b)
+{
+
+    for (int16_t i = 0; i < NUM_PIXELS; i++)
+    {
+
+        valor_led = matrix_rgb(b, r = 0.0, g = 0.0);
+        pio_sm_put_blocking(pio, sm, valor_led);
+    }
+}
+
 // Função principal
 int main()
 {
@@ -219,6 +236,12 @@ int main()
 
         else if (tecla == 'B')
         {
+
+            r = 0.0;
+            g = 0.0;
+            b = 1.0;
+            desenho_pio_blue(desenho2, valor_led, pio, sm, r, g, b);
+            sleep_ms(1000);
         }
         else
         {
