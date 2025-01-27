@@ -159,6 +159,7 @@ int main()
                 sleep_ms(1100);
                 desenho_pio2(exclamacao, valor_led, pio, sm, r, g, b);
                 sleep_ms(1100);
+                
                 break;
             case '4':
                 // fazer contagem de 1 a 5
@@ -194,7 +195,8 @@ int main()
                 b = 1.0;
                 desenho_pio_blue(desenho2, valor_led, pio, sm, r, g, b);
                 sleep_ms(1000);
-                case 'D':
+                break;
+            case 'D':
                 desenho_pio3(ledsLigados, valor_led, pio, sm, 0.0, 0.0, 1.0);
                 sleep_ms(1500);
                 break;
@@ -204,6 +206,9 @@ int main()
                 b = 1.0;
                 desenho_pio3(desenho_white, valor_led, pio, sm, b, r, g);
                 sleep_ms(1000);
+                break;
+            default:
+                desenho_pio3(ledsLigados, valor_led, pio, sm, 0.0 ,1.0,0.0);
                 break;
         }
         sleep_ms(100);
