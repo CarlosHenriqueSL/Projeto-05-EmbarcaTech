@@ -60,70 +60,56 @@ char get_tecla()
     return '\0'; // Nenhuma tecla pressionada
 }
 
-uint32_t matrix_rgb(double r, double g, double b, char cor)
+uint32_t matrix_rgb(double r, double g, double b)
 {
     unsigned char R = 0, G = 0, B = 0;
-    switch (cor)
-    {
-    case 'r':
-        R = r * 255;
-        break;
-    case 'b':
-        B = b * 255;
-        break;
-    case 'g':
-        G = g * 255;
-        break;
-    case 'w':
-        R = r * 255;
-        G = g * 255;
-        B = b * 255;
-        break;
-    }
+    R = r * 255;
+    G = g * 255;
+    B = b * 255;
 
     return (G << 24) | (R << 16) | (B << 8);
 }
 
-void desenho_pio2(double *desenho, uint32_t valor_led, PIO pio, uint sm, double r, double g, double b, char c)
+void desenho_pio2(double *desenho, uint32_t valor_led, PIO pio, uint sm, double r, double g, double b)
 {
     for (int16_t i = 0; i < NUM_PIXELS; i++)
     {
         if (i % 2 == 0)
         {
-            valor_led = matrix_rgb(desenho[24 - i], r = 0.0, g = 0.0, c);
+            valor_led = matrix_rgb(desenho[24 - i], r = 0.0, g = 0.0);
             pio_sm_put_blocking(pio, sm, valor_led);
         }
         else
         {
-            valor_led = matrix_rgb(b = 0.0, desenho[24 - i], g = 0.0, c);
+            valor_led = matrix_rgb(b = 0.0, desenho[24 - i], g = 0.0);
             pio_sm_put_blocking(pio, sm, valor_led);
         }
     }
 }
 
-void desenho_pio(double *desenho, uint32_t valor_led, PIO pio, uint sm, double r, double g, double b, char c)
+void desenho_pio(double *desenho, uint32_t valor_led, PIO pio, uint sm, double r, double g, double b)
 {
     for (int i = 0; i < NUM_PIXELS; i++)
     {
-        uint32_t valor_led = matrix_rgb(desenho[24 - i] * r, desenho[24 - i] * g, desenho[24 - i] * b, c);
+        uint32_t valor_led = matrix_rgb(desenho[24 - i] * r, desenho[24 - i] * g, desenho[24 - i] * b);
         pio_sm_put_blocking(pio, sm, valor_led);
     }
 }
 
-void desenho_pio3(double *desenho, uint32_t valor_led, PIO pio, uint sm, double r, double g, double b, char c)
+void desenho_pio3(double *desenho, uint32_t valor_led, PIO pio, uint sm, double r, double g, double b)
 {
     for (int i = 0; i < NUM_PIXELS; i++)
     {
-        uint32_t valor_led = matrix_rgb(desenho[24 - i] * r, desenho[24 - i] * g, desenho[24 - i] * b, c);
+        uint32_t valor_led = matrix_rgb(desenho[24 - i] * r, desenho[24 - i] * g, desenho[24 - i] * b);
         pio_sm_put_blocking(pio, sm, valor_led);
     }
 }
 
-void desenho_pio_blue(double *desenho, uint32_t valor_led, PIO pio, uint sm, double r, double g, double b, char c)
+void desenho_pio_blue(double *desenho, uint32_t valor_led, PIO pio, uint sm, double r, double g, double b)
 {
     for (int16_t i = 0; i < NUM_PIXELS; i++)
     {
-        valor_led = matrix_rgb(b, r = 0.0, g = 0.0, c);
+        valor_led = matrix_rgb(b, r = 0.0, g = 0.0);
         pio_sm_put_blocking(pio, sm, valor_led);
     }
 }
@@ -152,54 +138,49 @@ int main()
             r = 1.0;
             g = 0.0;
             b = 1.0;
-            desenho_pio(desenhomiddle1, valor_led, pio, sm, global_b, global_r, global_g, 'r');
+            desenho_pio(desenhomiddle1, valor_led, pio, sm, global_r, global_g, global_b);
             sleep_ms(500);
-            desenho_pio(desenhomiddle2, valor_led, pio, sm, global_b, global_r, global_g, 'r');
+            desenho_pio(desenhomiddle2, valor_led, pio, sm, global_r, global_g, global_b);
             sleep_ms(500);
-            desenho_pio(desenhomiddle3, valor_led, pio, sm, global_b, global_r, global_g, 'r');
+            desenho_pio(desenhomiddle3, valor_led, pio, sm, global_r, global_g, global_b);
             sleep_ms(500);
-            desenho_pio(desenhomiddle4, valor_led, pio, sm, global_b, global_r, global_g, 'r');
+            desenho_pio(desenhomiddle4, valor_led, pio, sm, global_r, global_g, global_b);
             sleep_ms(500);
-            desenho_pio(desenhomiddle5, valor_led, pio, sm, global_b, global_r, global_g, 'r');
+            desenho_pio(desenhomiddle5, valor_led, pio, sm, global_r, global_g, global_b);
             sleep_ms(500);
             break;
         case '1':
-            b = 1.0;
-            r = 1.0;
-            g = 1.0;
             setIntensidade(circulo, global_intensidade);
             setIntensidade(coracao, global_intensidade);
             setIntensidade(setaBaixo, global_intensidade);
             setIntensidade(setaCima, global_intensidade);
             setIntensidade(quadrado, global_intensidade);
-            desenho_pio(circulo, valor_led, pio, sm, global_b, global_r, global_g, 'r');
+            desenho_pio(circulo, valor_led, pio, sm, global_r, global_g, global_b);
             sleep_ms(1000);
-            desenho_pio(coracao, valor_led, pio, sm, global_b, global_r, global_g, 'r');
+            desenho_pio(coracao, valor_led, pio, sm, global_r, global_g, global_b);
             sleep_ms(1000);
-            desenho_pio(setaBaixo, valor_led, pio, sm, global_b, global_r, global_g, 'r');
+            desenho_pio(setaBaixo, valor_led, pio, sm, global_r, global_g, global_b);
             sleep_ms(1000);
-            desenho_pio(setaCima, valor_led, pio, sm, global_b, global_r, global_g, 'r');
+            desenho_pio(setaCima, valor_led, pio, sm, global_r, global_g, global_b);
             sleep_ms(1000);
-            desenho_pio(quadrado, valor_led, pio, sm, global_b, global_r, global_g, 'r');
+            desenho_pio(quadrado, valor_led, pio, sm, global_r, global_g, global_b);
             sleep_ms(1000);
             break;
        case '2':
-            r = 0.0;
-            b = 1.0;
             setIntensidade(estrela, global_intensidade);
             setIntensidade(coroa, global_intensidade);
             setIntensidade(setaEsquerda, global_intensidade);
             setIntensidade(setaDireita, global_intensidade);
             setIntensidade(rosto, global_intensidade);
-            desenho_pio(estrela, valor_led, pio, sm, b, r, g, 'r');
+            desenho_pio(estrela, valor_led, pio, sm, global_r, global_g, global_b);
             sleep_ms(1000);
-            desenho_pio(coroa, valor_led, pio, sm, b, r, g, 'r');
+            desenho_pio(coroa, valor_led, pio, sm, global_r, global_g, global_b);
             sleep_ms(1000);
-            desenho_pio(setaEsquerda, valor_led, pio, sm, b, r, g, 'r');
+            desenho_pio(setaEsquerda, valor_led, pio, sm, global_r, global_g, global_b);
             sleep_ms(1000);
-            desenho_pio(setaDireita, valor_led, pio, sm, b, r, g, 'r');
+            desenho_pio(setaDireita, valor_led, pio, sm, global_r, global_g, global_b);
             sleep_ms(1000);
-            desenho_pio(rosto, valor_led, pio, sm, b, r, g, 'r');
+            desenho_pio(rosto, valor_led, pio, sm, global_r, global_g, global_b);
             sleep_ms(1000);
             break;
        /* case '3':
@@ -247,8 +228,7 @@ int main()
         case 'A':
             global_r = 0.0;
             global_g = 0.0;
-            global_b = 1.0;
-            global_intensidade = 0.0;
+            global_b = 0.0;
             break;
         case 'B':
             global_r = 0.0;
@@ -270,7 +250,7 @@ int main()
             sleep_ms(1000);
             break;*/
         default:
-            desenho_pio3(ledsLigados, valor_led, pio, sm, 0.0, 1.0, 0.0, 'w');
+            desenho_pio3(ledsLigados, valor_led, pio, sm, 0.0, 1.0, 0.0);
             break;
         }
         sleep_ms(100);
