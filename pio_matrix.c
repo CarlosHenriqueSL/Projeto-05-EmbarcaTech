@@ -98,6 +98,72 @@ double ledsLigados[NUM_PIXELS] = {1.0, 1.0, 1.0, 1.0, 1.0,
                                   1.0, 1.0, 1.0, 1.0, 1.0,
                                   1.0, 1.0, 1.0, 1.0, 1.0};
 
+double desenho_white[NUM_PIXELS] = {0.2, 0.2, 0.2, 0.2, 0.2,
+                                    0.2, 0.2, 0.2, 0.2, 0.2,
+                                    0.2, 0.2, 0.2, 0.2, 0.2,
+                                    0.2, 0.2, 0.2, 0.2, 0.2,
+                                    0.2, 0.2, 0.2, 0.2, 0.2};
+
+double desenhocorner1[NUM_PIXELS] = {0.0, 0.0, 0.0, 0.0, 1.0,
+                                     0.0, 0.0, 0.0, 0.0, 0.0,
+                                     0.0, 0.0, 0.0, 0.0, 0.0,
+                                     0.0, 0.0, 0.0, 0.0, 0.0,
+                                     0.0, 0.0, 0.0, 0.0, 0.0};
+
+double desenhocorner2[NUM_PIXELS] = {0.0, 0.0, 1.0, 0.0, 0.5,
+                                     0.0, 0.0, 1.0, 0.0, 0.0,
+                                     0.0, 0.0, 1.0, 1.0, 1.0,
+                                     0.0, 0.0, 0.0, 0.0, 0.0,
+                                     0.0, 0.0, 0.0, 0.0, 0.0};
+
+double desenhocorner3[NUM_PIXELS] = {1.0, 0.0, 0.5, 0.0, 0.2,
+                                     0.0, 0.0, 0.5, 0.0, 1.0,
+                                     1.0, 0.0, 0.5, 0.5, 0.5,
+                                     0.0, 0.0, 0.0, 0.0, 1.0,
+                                     1.0, 1.0, 1.0, 1.0, 1.0};
+
+double desenhocorner4[NUM_PIXELS] = {0.5, 0.0, 0.2, 0.0, 0.0,
+                                     0.0, 0.0, 0.2, 0.0, 0.5,
+                                     0.5, 0.0, 0.2, 0.2, 0.2,
+                                     0.0, 0.0, 0.0, 0.0, 0.5,
+                                     0.5, 0.5, 0.5, 0.5, 0.5};
+
+double desenhocorner5[NUM_PIXELS] = {0.2, 0.0, 0.0, 0.0, 0.0,
+                                     0.0, 0.0, 0.0, 0.0, 0.2,
+                                     0.2, 0.0, 0.0, 0.0, 0.0,
+                                     0.0, 0.0, 0.0, 0.0, 0.2,
+                                     0.2, 0.2, 0.2, 0.2, 0.2};
+
+double desenhomiddle1[NUM_PIXELS] = {0.0, 0.0, 1.0, 0.0, 0.0,
+                                     0.0, 0.0, 1.0, 0.0, 0.0,
+                                     0.0, 0.0, 1.0, 0.0, 0.0,
+                                     0.0, 0.0, 1.0, 0.0, 0.0,
+                                     0.0, 0.0, 1.0, 0.0, 0.0};
+
+double desenhomiddle2[NUM_PIXELS] = {0.0, 1.0, 0.5, 1.0, 0.0,
+                                     0.0, 1.0, 0.5, 1.0, 0.0,
+                                     0.0, 1.0, 0.5, 1.0, 0.0,
+                                     0.0, 1.0, 0.5, 1.0, 0.0,
+                                     0.0, 1.0, 0.5, 1.0, 0.0};
+
+double desenhomiddle3[NUM_PIXELS] = {1.0, 0.5, 0.2, 0.5, 1.0,
+                                     1.0, 0.5, 0.2, 0.5, 1.0,
+                                     1.0, 0.5, 0.2, 0.5, 1.0,
+                                     1.0, 0.5, 0.2, 0.5, 1.0,
+                                     1.0, 0.5, 0.2, 0.5, 1.0};
+
+double desenhomiddle4[NUM_PIXELS] = {0.5, 0.2, 0.0, 0.2, 0.5,
+                                     0.5, 0.2, 0.0, 0.2, 0.5,
+                                     0.5, 0.2, 0.0, 0.2, 0.5,
+                                     0.5, 0.2, 0.0, 0.2, 0.5,
+                                     0.5, 0.2, 0.0, 0.2, 0.5};
+
+double desenhomiddle5[NUM_PIXELS] = {0.2, 0.0, 0.0, 0.0, 0.2,
+                                     0.2, 0.0, 0.0, 0.0, 0.2,
+                                     0.2, 0.0, 0.0, 0.0, 0.2,
+                                     0.2, 0.0, 0.0, 0.0, 0.2,
+                                     0.2, 0.0, 0.0, 0.0, 0.2};
+
 // Função para inicializar o teclado matricial
 void iniciar_teclado()
 {
@@ -173,6 +239,15 @@ void desenho_pio(double *desenho, PIO pio, uint sm)
     }
 }
 
+void desenho_pio3(double *desenho, uint32_t valor_led, PIO pio, uint sm, double r, double g, double b)
+{
+    for (int i = 0; i < NUM_PIXELS; i++)
+    {
+        uint32_t valor_led = matrix_rgb(desenho[24 - i]*r, desenho[24 - i]*g, desenho[24 - i]*b);
+        pio_sm_put_blocking(pio, sm, valor_led);
+    }
+}
+
 void desenho_pio_blue(double *desenho, uint32_t valor_led, PIO pio, uint sm, double r, double g, double b)
 {
 
@@ -183,6 +258,7 @@ void desenho_pio_blue(double *desenho, uint32_t valor_led, PIO pio, uint sm, dou
         pio_sm_put_blocking(pio, sm, valor_led);
     }
 }
+
 
 // Função principal
 int main()
@@ -241,6 +317,43 @@ int main()
             g = 0.0;
             b = 1.0;
             desenho_pio_blue(desenho2, valor_led, pio, sm, r, g, b);
+            sleep_ms(1000);
+        }
+        else if (tecla == '9'){
+            r = 1.0;
+            g = 1.0;
+            b = 0.0;
+            desenho_pio3(desenhocorner1, valor_led, pio, sm, b, r, g);
+            sleep_ms(500);
+            desenho_pio3(desenhocorner2, valor_led, pio, sm, b, r, g);
+            sleep_ms(500);
+            desenho_pio3(desenhocorner3, valor_led, pio, sm, b, r, g);
+            sleep_ms(500);
+            desenho_pio3(desenhocorner4, valor_led, pio, sm, b, r, g);
+            sleep_ms(500);
+            desenho_pio3(desenhocorner5, valor_led, pio, sm, b, r, g);
+            sleep_ms(500);
+        }
+        else if (tecla == '0'){
+            r = 1.0;
+            g = 0.0;
+            b = 1.0;
+            desenho_pio3(desenhomiddle1, valor_led, pio, sm, b, r, g);
+            sleep_ms(500);
+            desenho_pio3(desenhomiddle2, valor_led, pio, sm, b, r, g);
+            sleep_ms(500);
+            desenho_pio3(desenhomiddle3, valor_led, pio, sm, b, r, g);
+            sleep_ms(500);
+            desenho_pio3(desenhomiddle4, valor_led, pio, sm, b, r, g);
+            sleep_ms(500);
+            desenho_pio3(desenhomiddle5, valor_led, pio, sm, b, r, g);
+            sleep_ms(500);
+        }
+        else if (tecla == '#'){
+            r = 1.0;
+            g = 1.0;
+            b = 1.0;
+            desenho_pio3(desenho_white, valor_led, pio, sm, b, r, g);
             sleep_ms(1000);
         }
         else
