@@ -10,6 +10,7 @@
 #define COLS 4
 #define LED_PIN 14
 
+
 const uint8_t row_pins[ROWS] = {9, 8, 7, 6};
 const uint8_t col_pins[COLS] = {5, 4, 3, 2};
 
@@ -83,12 +84,12 @@ void desenho_pio2(double *desenho, uint32_t valor_led, PIO pio, uint sm, double 
     }
 }
 
-// Função para desenhar na matriz de LEDs
-void desenho_pio(double *desenho, PIO pio, uint sm)
+
+void desenho_pio(double *desenho, uint32_t valor_led, PIO pio, uint sm, double r, double g, double b)
 {
     for (int i = 0; i < NUM_PIXELS; i++)
     {
-        uint32_t valor_led = matrix_rgb(desenho[24 - i], 0.0, 0.0);
+        uint32_t valor_led = matrix_rgb(desenho[24 - i]*r, desenho[24 - i]*g, desenho[24 - i]*b);
         pio_sm_put_blocking(pio, sm, valor_led);
     }
 }
@@ -114,6 +115,7 @@ void desenho_pio_blue(double *desenho, uint32_t valor_led, PIO pio, uint sm, dou
 // Função principal
 int main()
 {
+    double intensidade;
     double r = 0.0, b = 0.0, g = 0.0;
     uint32_t valor_led;
     stdio_init_all();
@@ -133,19 +135,53 @@ int main()
                 r = 1.0;
                 g = 0.0;
                 b = 1.0;
-                desenho_pio3(desenhomiddle1, valor_led, pio, sm, b, r, g);
+                desenho_pio(desenhomiddle1, valor_led, pio, sm, b, r, g);
                 sleep_ms(500);
-                desenho_pio3(desenhomiddle2, valor_led, pio, sm, b, r, g);
+                desenho_pio(desenhomiddle2, valor_led, pio, sm, b, r, g);
                 sleep_ms(500);
-                desenho_pio3(desenhomiddle3, valor_led, pio, sm, b, r, g);
+                desenho_pio(desenhomiddle3, valor_led, pio, sm, b, r, g);
                 sleep_ms(500);
-                desenho_pio3(desenhomiddle4, valor_led, pio, sm, b, r, g);
+                desenho_pio(desenhomiddle4, valor_led, pio, sm, b, r, g);
                 sleep_ms(500);
-                desenho_pio3(desenhomiddle5, valor_led, pio, sm, b, r, g);
+                desenho_pio(desenhomiddle5, valor_led, pio, sm, b, r, g);
                 sleep_ms(500);
                 break;
             case '1':
-                desenho_pio2(desenho1, valor_led, pio, sm, r, g, b);
+                b = 1.0;
+                setIntensidade(circulo, intensidade);
+                setIntensidade(coracao, intensidade);
+                setIntensidade(setaBaixo, intensidade);
+                setIntensidade(setaCima, intensidade);
+                setIntensidade(quadrado, intensidade);
+                desenho_pio(circulo, valor_led, pio, sm, b, r, g);
+                sleep_ms(1000);
+                desenho_pio(coracao, valor_led, pio, sm, b, r, g);
+                sleep_ms(1000);
+                desenho_pio(setaBaixo, valor_led, pio, sm, b, r, g);
+                sleep_ms(1000);
+                desenho_pio(setaCima, valor_led, pio, sm, b, r, g);
+                sleep_ms(1000);
+                desenho_pio(quadrado, valor_led, pio, sm, b, r, g);
+                sleep_ms(1000);
+                break;
+            case '2':
+                r = 1.0;
+                b = 1.0;
+                setIntensidade(estrela, intensidade);
+                setIntensidade(coroa, intensidade);
+                setIntensidade(setaEsquerda, intensidade);
+                setIntensidade(setaDireita, intensidade);
+                setIntensidade(rosto, intensidade);
+                desenho_pio(estrela, valor_led, pio, sm, b, r, g);
+                sleep_ms(1000);
+                desenho_pio(coroa, valor_led, pio, sm, b, r, g);
+                sleep_ms(1000);
+                desenho_pio(setaEsquerda, valor_led, pio, sm, b, r, g);
+                sleep_ms(1000);
+                desenho_pio(setaDireita, valor_led, pio, sm, b, r, g);
+                sleep_ms(1000);
+                desenho_pio(rosto, valor_led, pio, sm, b, r, g);
+                sleep_ms(1000);
                 break;
             case '3':
                 // Desenhar a palavra TECH!
@@ -178,23 +214,22 @@ int main()
                 r = 1.0;
                 g = 1.0;
                 b = 0.0;
-                desenho_pio3(desenhocorner1, valor_led, pio, sm, b, r, g);
+                desenho_pio(desenhocorner1, valor_led, pio, sm, b, r, g);
                 sleep_ms(500);
-                desenho_pio3(desenhocorner2, valor_led, pio, sm, b, r, g);
+                desenho_pio(desenhocorner2, valor_led, pio, sm, b, r, g);
                 sleep_ms(500);
-                desenho_pio3(desenhocorner3, valor_led, pio, sm, b, r, g);
+                desenho_pio(desenhocorner3, valor_led, pio, sm, b, r, g);
                 sleep_ms(500);
-                desenho_pio3(desenhocorner4, valor_led, pio, sm, b, r, g);
+                desenho_pio(desenhocorner4, valor_led, pio, sm, b, r, g);
                 sleep_ms(500);
-                desenho_pio3(desenhocorner5, valor_led, pio, sm, b, r, g);
+                desenho_pio(desenhocorner5, valor_led, pio, sm, b, r, g);
                 sleep_ms(500);
                 break;
             case 'B':
                 r = 0.0;
                 g = 0.0;
                 b = 1.0;
-                desenho_pio_blue(desenho2, valor_led, pio, sm, r, g, b);
-                sleep_ms(1000);
+                intensidade = 1.0;
                 break;
             case 'D':
                 desenho_pio3(ledsLigados, valor_led, pio, sm, 0.0, 0.0, 1.0);
