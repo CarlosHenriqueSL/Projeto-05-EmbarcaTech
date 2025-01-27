@@ -38,5 +38,15 @@ extern double setaEsquerda[NUM_PIXELS];
 extern double setaDireita[NUM_PIXELS];
 extern double rosto[NUM_PIXELS];
 extern void setIntensidade(double desenho[], double intensidade);
+extern double animacao_5_frame1[NUM_PIXELS];
+extern double animacao_5_frame2[NUM_PIXELS];
+extern double animacao_5_frame3[NUM_PIXELS];
+extern double animacao_5_frame4[NUM_PIXELS];
+extern double animacao_5_frame5[NUM_PIXELS];
+extern double animacao_6_frame1[NUM_PIXELS];
+extern double animacao_6_frame2[NUM_PIXELS];
+extern double animacao_6_frame3[NUM_PIXELS];
+extern double animacao_6_frame4[NUM_PIXELS];
+extern double animacao_6_frame5[NUM_PIXELS];
 
 #endif
