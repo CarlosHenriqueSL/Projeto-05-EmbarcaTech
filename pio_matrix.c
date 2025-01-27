@@ -60,7 +60,7 @@ char get_tecla()
     return '\0'; // Nenhuma tecla pressionada
 }
 
-uint32_t matrix_rgb(double b, double r, double g, char cor)
+uint32_t matrix_rgb(double r, double g, double b, char cor)
 {
     unsigned char R = 0, G = 0, B = 0;
     switch (cor)
@@ -165,7 +165,7 @@ int main()
             break;
         case '1':
             b = 1.0;
-            r = 0.0;
+            r = 1.0;
             g = 1.0;
             setIntensidade(circulo, global_intensidade);
             setIntensidade(coracao, global_intensidade);
@@ -184,7 +184,7 @@ int main()
             sleep_ms(1000);
             break;
        case '2':
-            r = 1.0;
+            r = 0.0;
             b = 1.0;
             setIntensidade(estrela, global_intensidade);
             setIntensidade(coroa, global_intensidade);
