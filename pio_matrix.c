@@ -110,15 +110,15 @@ int main()
             setIntensidade(desenhomiddle4, global_intensidade);
             setIntensidade(desenhomiddle5, global_intensidade);
             desenho_pio(desenhomiddle1, valor_led, pio, sm, global_r, global_g, global_b);
-            sleep_ms(500);
+            sleep_ms(1000);
             desenho_pio(desenhomiddle2, valor_led, pio, sm, global_r, global_g, global_b);
-            sleep_ms(500);
+            sleep_ms(1000);
             desenho_pio(desenhomiddle3, valor_led, pio, sm, global_r, global_g, global_b);
-            sleep_ms(500);
+            sleep_ms(1000);
             desenho_pio(desenhomiddle4, valor_led, pio, sm, global_r, global_g, global_b);
-            sleep_ms(500);
+            sleep_ms(1000);
             desenho_pio(desenhomiddle5, valor_led, pio, sm, global_r, global_g, global_b);
-            sleep_ms(500);
+            sleep_ms(1000);
             desenho_pio(ledsDesligados, valor_led, pio, sm, 0.0, 0.0, 0.0);
             break;
         case '1':
@@ -164,15 +164,15 @@ int main()
             setIntensidade(letraH, global_intensidade);
             setIntensidade(exclamacao, global_intensidade);
             desenho_pio(letraT, valor_led, pio, sm, global_r, global_g, global_b);
-            sleep_ms(1100);
+            sleep_ms(1000);
             desenho_pio(letraE, valor_led, pio, sm, global_r, global_g, global_b);
-            sleep_ms(1100);
+            sleep_ms(1000);
             desenho_pio(letraC, valor_led, pio, sm, global_r, global_g, global_b);
-            sleep_ms(1100);
+            sleep_ms(1000);
             desenho_pio(letraH, valor_led, pio, sm, global_r, global_g, global_b);
-            sleep_ms(1100);
+            sleep_ms(1000);
             desenho_pio(exclamacao, valor_led, pio, sm, global_r, global_g, global_b);
-            sleep_ms(1100);
+            sleep_ms(1000);
             desenho_pio(ledsDesligados, valor_led, pio, sm, 0.0, 0.0, 0.0);
             break;
         case '4':
@@ -182,15 +182,15 @@ int main()
             setIntensidade(numero4, global_intensidade);
             setIntensidade(numero5, global_intensidade);
             desenho_pio(numero1, valor_led, pio, sm, global_r, global_g, global_b);
-            sleep_ms(1500);
+            sleep_ms(1000);
             desenho_pio(numero2, valor_led, pio, sm, global_r, global_g, global_b);
-            sleep_ms(1500);
+            sleep_ms(1000);
             desenho_pio(numero3, valor_led, pio, sm, global_r, global_g, global_b);
-            sleep_ms(1500);
+            sleep_ms(1000);
             desenho_pio(numero4, valor_led, pio, sm, global_r, global_g, global_b);
-            sleep_ms(1500);
+            sleep_ms(1000);
             desenho_pio(numero5, valor_led, pio, sm, global_r, global_g, global_b);
-            sleep_ms(1500);
+            sleep_ms(1000);
             desenho_pio(ledsDesligados, valor_led, pio, sm, 0.0, 0.0, 0.0);
             break;
         case '5':
@@ -254,17 +254,17 @@ int main()
             setIntensidade(desenho_numero8e, 1.0);
             setIntensidade(desenho_numero8f, 1.0);
             desenho_pio(desenho_numero8a, valor_led, pio, sm, 0.0, 0.0, 1.0);
-            sleep_ms(500);
+            sleep_ms(1000);
             desenho_pio(desenho_numero8b, valor_led, pio, sm, 0.0, 0.0, 1.0);
-            sleep_ms(500);
+            sleep_ms(1000);
             desenho_pio(desenho_numero8c, valor_led, pio, sm, 0.0, 0.0, 1.0);
-            sleep_ms(500);
+            sleep_ms(1000);
             desenho_pio(desenho_numero8d, valor_led, pio, sm, 0.0, 0.0, 1.0);
-            sleep_ms(500);
+            sleep_ms(1000);
             desenho_pio(desenho_numero8e, valor_led, pio, sm, 0.0, 0.0, 1.0);
-            sleep_ms(500);
+            sleep_ms(1000);
             desenho_pio(desenho_numero8f, valor_led, pio, sm, 0.0, 0.0, 1.0);
-            sleep_ms(500);
+            sleep_ms(1000);
             desenho_pio(ledsDesligados, valor_led, pio, sm, 0.0, 0.0, 0.0);
             break;
         case '9':
@@ -274,15 +274,15 @@ int main()
             setIntensidade(desenhocorner4, global_intensidade);
             setIntensidade(desenhocorner5, global_intensidade);
             desenho_pio(desenhocorner1, valor_led, pio, sm, global_r, global_g, global_b);
-            sleep_ms(500);
+            sleep_ms(1000);
             desenho_pio(desenhocorner2, valor_led, pio, sm, global_r, global_g, global_b);
-            sleep_ms(500);
+            sleep_ms(1000);
             desenho_pio(desenhocorner3, valor_led, pio, sm, global_r, global_g, global_b);
-            sleep_ms(500);
+            sleep_ms(1000);
             desenho_pio(desenhocorner4, valor_led, pio, sm, global_r, global_g, global_b);
-            sleep_ms(500);
+            sleep_ms(1000);
             desenho_pio(desenhocorner5, valor_led, pio, sm, global_r, global_g, global_b);
-            sleep_ms(500);
+            sleep_ms(1000);
             desenho_pio(ledsDesligados, valor_led, pio, sm, 0.0, 0.0, 0.0);
             break;
         case 'A':
