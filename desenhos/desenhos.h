@@ -58,6 +58,7 @@ extern double desenho_numero8c[NUM_PIXELS];
 extern double desenho_numero8d[NUM_PIXELS];
 extern double desenho_numero8e[NUM_PIXELS];
 extern double desenho_numero8f[NUM_PIXELS];
+extern double ledsDesligados[NUM_PIXELS];
 
 
 #endif
