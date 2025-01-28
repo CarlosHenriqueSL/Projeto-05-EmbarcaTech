@@ -48,5 +48,16 @@ extern double animacao_6_frame2[NUM_PIXELS];
 extern double animacao_6_frame3[NUM_PIXELS];
 extern double animacao_6_frame4[NUM_PIXELS];
 extern double animacao_6_frame5[NUM_PIXELS];
+extern double desenho_numero7a[NUM_PIXELS];
+extern double desenho_numero7b[NUM_PIXELS];
+extern double desenho_numero7c[NUM_PIXELS];
+extern double desenho_numero7d[NUM_PIXELS];
+extern double desenho_numero8a[NUM_PIXELS];
+extern double desenho_numero8b[NUM_PIXELS];
+extern double desenho_numero8c[NUM_PIXELS];
+extern double desenho_numero8d[NUM_PIXELS];
+extern double desenho_numero8e[NUM_PIXELS];
+extern double desenho_numero8f[NUM_PIXELS];
+
 
 #endif

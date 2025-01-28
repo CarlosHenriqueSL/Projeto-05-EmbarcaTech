@@ -221,6 +221,42 @@ int main()
             desenho_pio(animacao_6_frame5, valor_led, pio, sm, global_r, global_g, global_b);
             sleep_ms(1000);
             break;
+        case '7':
+            setIntensidade(desenho_numero7a, 1.0);
+            setIntensidade(desenho_numero7b, 1.0);
+            setIntensidade(desenho_numero7c, 1.0);
+            setIntensidade(desenho_numero7d, 1.0);
+            desenho_pio(desenho_numero7a, valor_led, pio, sm, 1.0, 0.0, 0.0);
+            sleep_ms(1000);
+            desenho_pio(desenho_numero7b, valor_led, pio, sm, 1.0, 0.0, 0.0);
+            sleep_ms(1000);
+            desenho_pio(desenho_numero7c, valor_led, pio, sm, 1.0, 0.0, 0.0);
+            sleep_ms(1000);
+            desenho_pio(desenho_numero7b, valor_led, pio, sm, 1.0, 0.0, 0.0);
+            sleep_ms(1000);
+            desenho_pio(desenho_numero7d, valor_led, pio, sm, 1.0, 0.0, 0.0);
+            sleep_ms(1000);
+            break;
+        case '8':
+            setIntensidade(desenho_numero8a, 1.0);
+            setIntensidade(desenho_numero8b, 1.0);
+            setIntensidade(desenho_numero8c, 1.0);
+            setIntensidade(desenho_numero8d, 1.0);
+            setIntensidade(desenho_numero8e, 1.0);
+            setIntensidade(desenho_numero8f, 1.0);
+            desenho_pio(desenho_numero8a, valor_led, pio, sm, 0.0, 0.0, 1.0);
+            sleep_ms(500);
+            desenho_pio(desenho_numero8b, valor_led, pio, sm, 0.0, 0.0, 1.0);
+            sleep_ms(500);
+            desenho_pio(desenho_numero8c, valor_led, pio, sm, 0.0, 0.0, 1.0);
+            sleep_ms(500);
+            desenho_pio(desenho_numero8d, valor_led, pio, sm, 0.0, 0.0, 1.0);
+            sleep_ms(500);
+            desenho_pio(desenho_numero8e, valor_led, pio, sm, 0.0, 0.0, 1.0);
+            sleep_ms(500);
+            desenho_pio(desenho_numero8f, valor_led, pio, sm, 0.0, 0.0, 1.0);
+            sleep_ms(500);
+            break;
         case '9':
             setIntensidade(desenhocorner1, global_intensidade);
             setIntensidade(desenhocorner2, global_intensidade);
@@ -256,10 +292,8 @@ int main()
             global_intensidade = 0.8;
             break;
         case 'D':
-            global_r = 0.0;
-            global_g = 1.0;
-            global_b = 0.0;
-            global_intensidade = 0.5;
+            desenho_pio(ledsLigados, valor_led, pio, sm, 0.0, 1.0, 0.0);
+            sleep_ms(1500);
             break;
         case '#':
             global_r = 1.0;
