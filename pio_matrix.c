@@ -22,6 +22,7 @@ const char keys[ROWS][COLS] = {
     {'7', '8', '9', 'C'},
     {'*', '0', '#', 'D'}};
 
+
 // Função para inicializar o teclado matricial
 void iniciar_teclado()
 {
@@ -269,6 +270,7 @@ int main()
         default:
             desenho_pio(ledsLigados, valor_led, pio, sm, 0.0, 0.0, 0.0);
             break;
+
         }
         sleep_ms(100);
     }
