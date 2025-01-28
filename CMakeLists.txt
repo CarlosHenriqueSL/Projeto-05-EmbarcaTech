@@ -46,7 +46,7 @@ pico_enable_stdio_usb(pio_matrix 1)
 
 pico_generate_pio_header(pio_matrix ${CMAKE_CURRENT_LIST_DIR}/pio_matrix.pio)
 
-target_sources(pio_matrix PRIVATE pio_matrix.c desenhos/desenhos.c)
+target_sources(pio_matrix PRIVATE pio_matrix.c desenhos/desenhos.c buzzers/buzzers.c)
 
 # Add the standard library to the build
 target_link_libraries(pio_matrix PRIVATE
