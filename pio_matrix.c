@@ -13,8 +13,8 @@
 const uint8_t row_pins[ROWS] = {9, 8, 7, 6};
 const uint8_t col_pins[COLS] = {5, 4, 3, 2};
 
-double global_r = 1.0, global_g = 0.0, global_b = 0.0; // Cor padrão (branco)
-double global_intensidade = 1.0;   
+double global_r = 1.0, global_g = 0.0, global_b = 0.0;
+double global_intensidade = 1.0;
 
 const char keys[ROWS][COLS] = {
     {'1', '2', '3', 'A'},
@@ -63,7 +63,7 @@ char get_tecla()
 uint32_t matrix_rgb(double r, double g, double b)
 {
     unsigned char R = 0, G = 0, B = 0;
-    
+
     R = r * 255;
     G = g * 255;
     B = b * 255;
@@ -135,7 +135,7 @@ int main()
             desenho_pio(quadrado, valor_led, pio, sm, global_r, global_g, global_b);
             sleep_ms(1000);
             break;
-       case '2':
+        case '2':
             setIntensidade(estrela, global_intensidade);
             setIntensidade(coroa, global_intensidade);
             setIntensidade(setaEsquerda, global_intensidade);
@@ -152,7 +152,7 @@ int main()
             desenho_pio(rosto, valor_led, pio, sm, global_r, global_g, global_b);
             sleep_ms(1000);
             break;
-       case '3':
+        case '3':
             setIntensidade(letraT, global_intensidade);
             setIntensidade(letraE, global_intensidade);
             setIntensidade(letraC, global_intensidade);
@@ -186,6 +186,40 @@ int main()
             desenho_pio(numero5, valor_led, pio, sm, global_r, global_g, global_b);
             sleep_ms(1500);
             break;
+        case '5':
+            setIntensidade(animacao_5_frame1, global_intensidade);
+            setIntensidade(animacao_5_frame2, global_intensidade);
+            setIntensidade(animacao_5_frame3, global_intensidade);
+            setIntensidade(animacao_5_frame4, global_intensidade);
+            setIntensidade(animacao_5_frame5, global_intensidade);
+            desenho_pio(animacao_5_frame1, valor_led, pio, sm, global_r, global_g, global_b);
+            sleep_ms(1000);
+            desenho_pio(animacao_5_frame2, valor_led, pio, sm, global_r, global_g, global_b);
+            sleep_ms(1000);
+            desenho_pio(animacao_5_frame3, valor_led, pio, sm, global_r, global_g, global_b);
+            sleep_ms(1000);
+            desenho_pio(animacao_5_frame4, valor_led, pio, sm, global_r, global_g, global_b);
+            sleep_ms(1000);
+            desenho_pio(animacao_5_frame5, valor_led, pio, sm, global_r, global_g, global_b);
+            sleep_ms(1000);
+            break;
+        case '6':
+            setIntensidade(animacao_6_frame1, global_intensidade);
+            setIntensidade(animacao_6_frame2, global_intensidade);
+            setIntensidade(animacao_6_frame3, global_intensidade);
+            setIntensidade(animacao_6_frame4, global_intensidade);
+            setIntensidade(animacao_6_frame5, global_intensidade);
+            desenho_pio(animacao_6_frame1, valor_led, pio, sm, global_r, global_g, global_b);
+            sleep_ms(1000);
+            desenho_pio(animacao_6_frame2, valor_led, pio, sm, global_r, global_g, global_b);
+            sleep_ms(1000);
+            desenho_pio(animacao_6_frame3, valor_led, pio, sm, global_r, global_g, global_b);
+            sleep_ms(1000);
+            desenho_pio(animacao_6_frame4, valor_led, pio, sm, global_r, global_g, global_b);
+            sleep_ms(1000);
+            desenho_pio(animacao_6_frame5, valor_led, pio, sm, global_r, global_g, global_b);
+            sleep_ms(1000);
+            break;
         case '9':
             setIntensidade(desenhocorner1, global_intensidade);
             setIntensidade(desenhocorner2, global_intensidade);
@@ -213,6 +247,12 @@ int main()
             global_g = 0.0;
             global_b = 1.0;
             global_intensidade = 1.0;
+            break;
+        case 'C':
+            global_r = 1.0;
+            global_g = 0.0;
+            global_b = 0.0;
+            global_intensidade = 0.8;
             break;
         case 'D':
             global_r = 0.0;
