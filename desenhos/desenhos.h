@@ -16,6 +16,7 @@ extern double numero3[NUM_PIXELS];
 extern double numero4[NUM_PIXELS];
 extern double numero5[NUM_PIXELS];
 extern double ledsLigados[NUM_PIXELS];
+extern double ledsDesligados[NUM_PIXELS];
 extern double desenho_white[NUM_PIXELS];
 extern double desenhocorner1[NUM_PIXELS];
 extern double desenhocorner2[NUM_PIXELS];
