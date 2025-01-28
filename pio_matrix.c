@@ -20,6 +20,7 @@ const char keys[ROWS][COLS] = {
     {'7', '8', '9', 'C'},
     {'*', '0', '#', 'D'}};
 
+
 // Função para inicializar o teclado matricial
 void iniciar_teclado()
 {
@@ -242,6 +243,44 @@ int main()
                 desenho_pio3(desenho_white, valor_led, pio, sm, b, r, g);
                 sleep_ms(1000);
                 break;
+            
+            case '5':
+                desenho_pio(animacao_5_frame1, valor_led, pio, sm, r, g, b);
+                sleep_ms(1000);
+                desenho_pio(animacao_5_frame2, valor_led, pio, sm, r, g, b);
+                sleep_ms(1000);
+                desenho_pio(animacao_5_frame3, valor_led, pio, sm, r, g, b);
+                sleep_ms(1000);
+                desenho_pio(animacao_5_frame4, valor_led, pio, sm, r, g, b);
+                sleep_ms(1000);
+                desenho_pio(animacao_5_frame5, valor_led, pio, sm, r, g, b);
+                sleep_ms(1000);
+                break;
+
+            case '6':
+                desenho_pio(animacao_6_frame1, valor_led, pio, sm, r, g, b);
+                sleep_ms(1000);
+                desenho_pio(animacao_6_frame2, valor_led, pio, sm, r, g, b);
+                sleep_ms(1000);
+                desenho_pio(animacao_6_frame3, valor_led, pio, sm, r, g, b);
+                sleep_ms(1000);
+                desenho_pio(animacao_6_frame4, valor_led, pio, sm, r, g, b);
+                sleep_ms(1000);
+                desenho_pio(animacao_6_frame5, valor_led, pio, sm, r, g, b);
+                sleep_ms(1000);
+                break;
+
+            case 'C':
+            // Configuração para cor vermelha com 80% de intensidade
+            double r = 0.8;
+            double g = 0.0;
+            double b = 0.0;
+            for (int i = 0; i < NUM_PIXELS; i++) {
+            uint32_t valor_led = matrix_rgb(b, r, g);
+            pio_sm_put_blocking(pio, sm, valor_led);
+            sleep_ms(1000);
+            break;
+
             default:
                 desenho_pio3(ledsLigados, valor_led, pio, sm, 0.0 ,1.0,0.0);
                 break;
