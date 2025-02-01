@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "author": "Anonymous maker",
+  "author": "Carlos Henrique",
   "editor": "wokwi",
   "parts": [
     {
@@ -45,13 +45,34 @@
     { "type": "wokwi-vcc", "id": "vcc4", "top": -277.64, "left": -384, "attrs": {} },
     { "type": "wokwi-vcc", "id": "vcc5", "top": -364.04, "left": -48, "attrs": {} },
     { "type": "wokwi-gnd", "id": "gnd5", "top": -268.8, "left": -48.6, "attrs": {} },
-    { "type": "wokwi-membrane-keypad", "id": "keypad1", "top": -366.8, "left": 82.4, "attrs": {} },
     {
-      "type": "wokwi-buzzer",
-      "id": "bz1",
-      "top": 12,
-      "left": 491.4,
-      "attrs": { "volume": "0.1" }
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 63.8,
+      "left": 192,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": 111.8,
+      "left": 192,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-rgb-led",
+      "id": "rgb26",
+      "top": 171.8,
+      "left": 173.1,
+      "rotate": 270,
+      "attrs": { "common": "cathode" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 234.35,
+      "left": 249.6,
+      "attrs": { "value": "1000" }
     }
   ],
   "connections": [
@@ -141,17 +162,16 @@
     [ "rgb23:VSS", "gnd5:GND", "green", [ "v0" ] ],
     [ "rgb24:VSS", "gnd5:GND", "green", [ "v0" ] ],
     [ "rgb25:VSS", "gnd5:GND", "green", [ "v0" ] ],
-    [ "keypad1:C4", "pico:GP2", "green", [ "v19.2", "h-0.3", "v96" ] ],
-    [ "rgb1:DIN", "pico:GP14", "green", [ "h76", "v134.36" ] ],
-    [ "keypad1:C3", "pico:GP3", "green", [ "v0" ] ],
-    [ "keypad1:C2", "pico:GP4", "green", [ "v0" ] ],
-    [ "keypad1:R3", "pico:GP7", "green", [ "v0" ] ],
-    [ "keypad1:C1", "pico:GP5", "green", [ "v0" ] ],
-    [ "pico:GP6", "keypad1:R4", "green", [ "h0" ] ],
-    [ "pico:GP8", "keypad1:R2", "green", [ "h0" ] ],
-    [ "keypad1:R1", "pico:GP9", "green", [ "v0" ] ],
-    [ "bz1:1", "pico:GND.6", "green", [ "v0" ] ],
-    [ "bz1:2", "pico:GP21", "green", [ "v0" ] ]
+    [ "pico:GND.2", "btn1:1.r", "black", [ "h-38.4", "v-48" ] ],
+    [ "btn1:2.r", "pico:GP5", "green", [ "h0" ] ],
+    [ "pico:GND.2", "btn2:1.r", "black", [ "h0" ] ],
+    [ "btn2:2.r", "pico:GP6", "green", [ "h0" ] ],
+    [ "rgb1:DIN", "pico:GP7", "green", [ "h181.6", "v67.2" ] ],
+    [ "pico:GP11", "rgb26:G", "green", [ "h-67.2", "v9.6" ] ],
+    [ "rgb26:B", "pico:GP12", "blue", [ "h67.2", "v-1.6" ] ],
+    [ "pico:GP13", "rgb26:R", "red", [ "h-57.6", "v9.64" ] ],
+    [ "rgb26:COM", "r1:1", "green", [ "v-0.1", "h38", "v28.8" ] ],
+    [ "pico:GND.4", "r1:2", "black", [ "h0" ] ]
   ],
   "dependencies": {}
 }
