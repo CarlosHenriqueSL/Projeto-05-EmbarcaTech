@@ -86,9 +86,9 @@ int main() {
 
     while (true) {
         gpio_put(LED_PIN_RED, 1);
-        sleep_ms(200);
+        sleep_ms(100);
         gpio_put(LED_PIN_RED, 0);
-        sleep_ms(200);
+        sleep_ms(100);
         if (current_numero != last_numero) {
             desenho_pio(numeros[current_numero], 0, pio, sm, 1.0, 0.0, 0.0);
             last_numero = current_numero;
