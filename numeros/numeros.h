@@ -1,5 +1,5 @@
-#ifndef DESENHOS_H
-#define DESENHOS_H
+#ifndef NUMEROS_H
+#define NUMEROS_H
 
 #define NUM_PIXELS 25
 
@@ -13,6 +13,5 @@ extern double numero7[NUM_PIXELS];
 extern double numero8[NUM_PIXELS];
 extern double numero9[NUM_PIXELS];
 extern double numero0[NUM_PIXELS];
-
 
 #endif

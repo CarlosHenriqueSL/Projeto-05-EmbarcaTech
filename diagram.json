@@ -57,7 +57,7 @@
       "id": "btn2",
       "top": 111.8,
       "left": 192,
-      "attrs": { "color": "green" }
+      "attrs": { "color": "red" }
     },
     {
       "type": "wokwi-rgb-led",
