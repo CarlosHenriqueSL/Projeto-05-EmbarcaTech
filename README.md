@@ -5,7 +5,7 @@
 - **Carlos Henrique Silva Lopes**
 
 ## **Link do vídeo de Ensaio**
-
+https://drive.google.com/file/d/1F46MtKin5Ple9JVkRdaG9vCt59-bfp20/view?usp=drivesdk
 
 ## **Descrição do Projeto**
 Este projeto implementa o controle de uma matriz de LEDs utilizando um Raspberry Pi Pico. O objetivo é exibir números de 0 a 9 na matriz, com a possibilidade de incrementar ou decrementar o número exibido por meio de dois botões (A e B). Além disso, o projeto também faz o acionamento um LED RGB vermelho 5 vezes por segundo. O código utiliza interrupções para detectar os pressionamentos dos botões e faz o debounce por software para evitar leituras incorretas.
